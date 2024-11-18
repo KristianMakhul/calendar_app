@@ -1,0 +1,105 @@
+<div class="bg-gray-100 w-screen h-screen flex items-center justify-center max-h-full dark:bg-gray-700">
+  <div class="hidden">
+    <svg>
+      <symbol
+        id="next"
+        width="14"
+        height="14"
+        viewBox="0 0 4 5"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.17867 0.379617L3.23047 2.43142L1.17867 4.48322"
+          stroke="currentColor"
+          stroke-width="0.725422"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+    <svg>
+      <symbol
+        id="prev"
+        width="14"
+        height="14"
+        viewBox="0 0 4 5"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3.27168 0.379617L1.21988 2.43142L3.27168 4.48322"
+          stroke="currentColor"
+          stroke-width="0.725422"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+    </svg>
+  </div>
+
+  <div class="w-full max-w-sm rounded-lg bg-white p-12 shadow-lg dark:bg-primary-dark">
+    <div class="mb-6 flex items-center justify-between">
+      <h3 class="text-xl font-bold text-primary dark:text-white">
+        October 2020
+      </h3>
+      <div class="flex justify-between gap-2 items-center">
+        <svg class="size-7 text-primary cursor-pointer dark:text-white p-2 overflow-visible">
+          <use xlink:href="#prev"></use>
+        </svg>
+        <svg class="size-7 text-primary cursor-pointer dark:text-white p-2 overflow-visible">
+          <use xlink:href="#next"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="mb-8 grid grid-cols-7 gap-2">
+      <%= for day <- ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"] do %>
+        <div class="flex justify-center items-center size-10">
+          <span class="text-base font-medium text-primary dark:text-white">
+            <%= day %>
+          </span>
+        </div>
+      <% end %>
+
+      <div>
+        <span class="hidden"> 29 </span>
+      </div>
+      <div>
+        <span class="hidden"> 30 </span>
+      </div>
+      <div>
+        <span class="hidden"> 31 </span>
+      </div>
+
+      <%= for n <- 1..30 do %>
+        <div class={"flex cursor-pointer justify-center items-center size-10 
+        #{if n == 8 do "bg-selected-red hover:bg-red-700 rounded-full dark:bg-selected-green dark:hover:bg-green-700" end}"}>
+          <span class={"text-base font-medium text-light-gray dark:text-secondary-dark 
+        #{if n == 8 do "text-white" end}"}>
+            <%= n %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="flex flex-col gap-4 border-t border-divider pt-8 dark:border-divider-dark">
+      <div class="flex flex-col justify-start">
+        <span class="text-xs text-light-gray dark:text-secondary-dark">8 AM</span>
+        <span class="font-medium text-primary dark:text-white">Breakfast</span>
+      </div>
+      <div class="flex flex-col justify-start">
+        <span class="text-xs text-light-gray dark:text-secondary-dark">10 AM</span>
+        <span class="font-medium text-primary dark:text-white">
+          Travel to venue
+        </span>
+      </div>
+      <div class="flex flex-col justify-start">
+        <span class="text-xs text-light-gray dark:text-secondary-dark">
+          10:30 AM
+        </span>
+        <span class="font-medium text-primary dark:text-white">Ceremony</span>
+      </div>
+    </div>
+  </div>
+</div>
